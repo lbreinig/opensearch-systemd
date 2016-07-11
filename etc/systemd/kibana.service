@@ -1,0 +1,21 @@
+[Unit]
+Description=Kibana
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+User=kibana
+Environment=NODE_ENV=production
+Environment=CONFIG_PATH=/opt/kibana/config/kibana.yml
+EnvironmentFile=/etc/default/kibana
+WorkingDirectory=/opt/kibana/
+ExecStart=/opt/kibana/bin/../node/bin/node --max-old-space-size=512 /opt/kibana/bin/../src/cli
+StandardOutput=syslog
+StandardError=syslog
+SyslogFacility=local7
+SyslogLevel=notice
+SyslogIdentifier=kibana
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

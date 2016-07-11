@@ -1,0 +1,10 @@
+/var/log/kibana/kibana.log {
+
+        copytruncate
+        missingok
+        compress
+        size 50M
+        rotate 5
+        create 0444 kibana root
+}
+
