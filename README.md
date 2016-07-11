@@ -4,20 +4,21 @@ These are my files that I am using on CentOS and Redhat with systemd
 
 Directory structure:
 
+`
 /
 └── etc
     ├── logrotate.d
     ├── rsyslog.d
     └── systemd
         └── system
-
+`
 
 - there are 4 files:
 
-/etc/logrotate.d/kibana
-/etc/systemd/kibana.service
-/etc/motd
-/etc/rsyslog.d/kibana.conf
+-- /etc/logrotate.d/kibana
+-- /etc/systemd/kibana.service
+-- /etc/motd
+-- /etc/rsyslog.d/kibana.conf
 
 
 /etc/motd is just for fun, you know accountants.. like to 'see' things :-)
