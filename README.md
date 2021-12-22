@@ -1,32 +1,25 @@
-# kibana4-systemd
+# opensearch-systemd
 
-These are my files that I am using on CentOS and Redhat with systemd
+Files for using on CentOS and Fedora with systemd
+Originally forked from Shellmaster/kibana4-systemd
 
-- there are 4 files:
+- there are 3 files:
 
- - /etc/logrotate.d/kibana
- - /etc/systemd/kibana.service
- - /etc/motd
- - /etc/rsyslog.d/kibana.conf
+ - /etc/logrotate.d/opensearch-dashboards
+ - /etc/systemd/opensearch-dashboards.service
+ - /etc/rsyslog.d/opensearch-dashboards.conf
 
 
-`/etc/motd` is just for fun, you know accountants.. like to 'see' things :-)
+`/etc/systemd/opensearch-dashboards.service` is a very simple script after you copy the file then you need to enable it in systemd 
 
-`/etc/systemd/kibana.service` is a very simple script after you copy the file then you need to enable it in systemd 
+`systemctl enable opensearch-dashboards`
 
-`systemctl enable kibana`
-
-then copy rsyslog script to enable logging under `/var/log/kibana`
+then copy rsyslog script to enable logging under `/var/log/opensearch-dashboards`
 
 `systemctl restart rsyslog`
 
-and you can finally start kibana
+and you can finally start opensearch-dashboards
 
-`systemctl start kibana`
-
-if it is a fresh installation then you might need to fix weird file permissions after 'optimize':
-
-`chown kibana:root /opt/kibana/optimize/.babelcache.json`
+`systemctl start opensearch-dashboards`
 
 
-Good Luck!
