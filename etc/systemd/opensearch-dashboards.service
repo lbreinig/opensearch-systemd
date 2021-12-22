@@ -1,0 +1,21 @@
+[Unit]
+Description=OpenSearch-Dashboards
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+User=opensearch
+Environment=NODE_ENV=production
+Environment=CONFIG_PATH=/opt/opensearch-dashboards/config/opensearch-dashboards.yml
+EnvironmentFile=/etc/default/opensearch-dashboards
+WorkingDirectory=/opt/opensearch-dashboards
+ExecStart=/opt/opensearch-dashboards/bin/opensearch-dashboards
+StandardOutput=syslog
+StandardError=syslog
+SyslogFacility=local7
+SyslogLevel=notice
+SyslogIdentifier=opensearch-dashboards
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
