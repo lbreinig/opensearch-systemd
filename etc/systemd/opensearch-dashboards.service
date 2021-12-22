@@ -1,6 +1,7 @@
 [Unit]
 Description=OpenSearch-Dashboards
-After=network.target remote-fs.target opensearch.service 
+Wants=network-online.target
+After=network-online.target opensearch.service 
 
 [Service]
 Type=simple
